@@ -1,0 +1,130 @@
+{
+	"_version": "1.25.0",
+	"start_url": "index.html",
+	"sap.app": {
+		"id": "de.bauerberatung.ui5-task",
+		"title": "App Launcher",
+		"type": "application",
+		"i18n": {
+			"bundleUrl": "i18n/i18n.properties",
+			"supportedLocales": ["de"],
+			"fallbackLocale": "de"
+		},
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+			"SupplierSource": {
+				"uri": "model/Lieferanten.json",
+				"type": "JSON"
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_belize_hcb",
+			"sap_belize_hcw",
+			"sap_belize",
+			"sap_belize_plus"
+		]
+	},
+	"sap.ui5": {
+		"dependencies": {
+			"minUI5Version": "1.84.3",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"resources": {
+			"css": [],
+			"js": []
+		},
+		"contentDensities": {
+			"compact": false,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "de.bauerberatung.ui5-task.i18n.i18n",
+					"supportedLocales": ["de"],
+					"fallbackLocale": "de"
+				}
+			},
+			"AppModel": {
+				"type": "sap.ui.model.json.JSONModel"
+			  },
+			"SupplierModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "SupplierSource"
+			}
+		},
+		"rootView": {
+			"id": "rootView",
+			"viewName": "de.bauerberatung.ui5-task.view.App",
+			"type": "XML",
+			"async": true,
+			"height": "100%",
+			"displayBlock": true
+		},
+		"routing": {
+			"routes": [{
+					"pattern": "",
+					"name": "Lieferant",
+					"target": "Lieferant"
+				},
+				{
+					"pattern": "Lieferant/:layout:",
+					"name": "Lieferant",
+					"target": "Lieferant"
+				},
+				{
+					"pattern": "Lieferant/:layout:/{id}/",
+					"name": "LieferantDetail",
+					"target": [
+						"Lieferant",
+						"LieferantDetail"
+					]
+				}
+			],
+			"targets": {
+				"Lieferant": {
+					"viewPath": "de.bauerberatung.ui5-task.modules.Lieferant",
+					"viewName": "LieferantList",
+					"controlAggregation": "beginColumnPages"
+				},
+				"LieferantDetail": {
+					"viewPath": "de.bauerberatung.ui5-task.modules.Lieferant",
+					"viewName": "LieferantDetail",
+					"controlAggregation": "midColumnPages"
+				},
+				"notFound": {
+					"viewName": "Parent",
+					"transition": "flip",
+					"viewLevel": 0
+				}
+			},
+			"config": {
+				"routerClass": "sap.f.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "de.bauerberatung.ui5-task.view",
+				"controlId": "fcl",
+				"controlAggregation": "beginColumnPages",
+				"bypassed": {
+					"target": [
+						"Lieferant"
+					]
+				}
+			}
+		}
+	}
+}

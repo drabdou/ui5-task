@@ -1,0 +1,62 @@
+<mvc:View xmlns="sap.uxap" class="sapUiSizeCompact"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m"
+    xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form" controllerName="de.bauerberatung.ui5-task.modules.Lieferant.LieferantDetail">
+    <ObjectPageLayout showTitleInHeaderContent="true" alwaysShowContentHeader="false" preserveHeaderStateOnScroll="false" headerContentPinnable="false" isChildPage="true" upperCaseAnchorBar="false">
+        <headerTitle>
+            <ObjectPageDynamicHeaderTitle>
+                <expandedHeading>
+                    <m:Title text="{SupplierModel>CompanyName}" wrapping="true" class="sapUiSmallMarginEnd" />
+                </expandedHeading>
+
+                <snappedHeading>
+                    <m:Title text="{SupplierModel>CompanyName}" wrapping="true" class="sapUiSmallMarginEnd" />
+                </snappedHeading>
+
+                <navigationActions>
+                    <m:OverflowToolbarButton type="Transparent" icon="sap-icon://decline" press="handleClose" tooltip="Close column" visible="{= ${/actionButtonsInfo/midColumn/closeColumn} !== null }" />
+                </navigationActions>
+
+                <actions>
+                    <m:Button text="Editieren" type="Emphasized" press="onEditPress" />
+                    <m:Button text="Löschen" type="Transparent" press="onDeletePress" />
+                </actions>
+
+            </ObjectPageDynamicHeaderTitle>
+        </headerTitle>
+
+        <sections>
+            <ObjectPageSection title="Allgemeine Informationen">
+                <subSections>
+                    <ObjectPageSubSection>
+                        <blocks>
+                            <form:SimpleForm maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" labelSpanL="12" labelSpanM="12" emptySpanL="0" emptySpanM="0" columnsL="1" columnsM="1">
+                                <form:content>
+                                    <m:Label text="Ansprechpartner" />
+                                    <m:Text text="{SupplierModel>ContactName} ({SupplierModel>ContactTitle})" />
+                                    <m:Label text="Straße" />
+                                    <m:Text text="{SupplierModel>Address}" />
+                                    <m:Label text="PLZ/Ort" />
+                                    <m:Text text="{SupplierModel>PostalCode} {SupplierModel>City}" />
+                                    <m:Label text="Land" />
+                                    <m:Text text="{SupplierModel>Country}" />
+                                </form:content>
+                            </form:SimpleForm>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+
+            <ObjectPageSection title="Weitere Informationen">
+                <subSections>
+                    <ObjectPageSubSection>
+                        <blocks>
+                            <m:Text text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." />
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+        </sections>
+    </ObjectPageLayout>
+</mvc:View>

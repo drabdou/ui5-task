@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+
+    <title>BB UI5 Task</title>
+
+    <script
+      id="sap-ui-bootstrap"
+      src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+      data-sap-ui-theme="sap_fiori_3"
+      data-sap-ui-compatVersion="edge"
+      data-sap-ui-async="true"
+      data-sap-ui-preload="auto"
+      data-sap-ui-resourceRoots='{"de.bauerberatung.ui5-task": "./"}'
+      data-sap-ui-xx-componentPreload="off"
+      data-sap-ui-xx-waitForTheme="true"
+    ></script>
+
+    <script>
+      sap.ui.getCore().attachInit(function () {
+        sap.ui
+          .component({
+            async: true,
+            manifestUrl: "manifest.json",
+          })
+          .then(function (createdComponent) {
+            sap.ui.require(["sap/m/Shell", "sap/ui/core/ComponentContainer"], function (Shell, ComponentContainer) {
+              new Shell({
+                app: new ComponentContainer({
+                  component: createdComponent,
+                  height: "100%",
+                }),
+                appWidthLimited: false,
+              }).placeAt("content");
+            });
+          });
+      });
+    </script>
+  </head>
+
+  <body class="sapUiBody" id="content"></body>
+</html>
