@@ -18,7 +18,7 @@ sap.ui.define(["de/bauerberatung/ui5-task/controller/BaseController", "sap/ui/mo
 
       // Referenz auf die Liste
       var oList = this.getView().byId("supplierList");
-    }
+    },
 
     onRefreshSupplier: function () {
       sap.m.MessageToast.show("Dummy - Refresh");
