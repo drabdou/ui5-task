@@ -3,14 +3,14 @@ sap.ui.define(["de/bauerberatung/ui5-task/controller/BaseController", "sap/ui/mo
   return BaseController.extend("de.bauerberatung.ui5-task.modules.Lieferant.LieferantList", {
     onInit: function () {
 
-      this.getRouter().attachRouteMatched("Lieferant", this._onRouteMatched.bind(this));         
+      this.getRouter().attachRouteMatched("Lieferant", this._onRouteMatched.bind(this));
     },
 
     _onRouteMatched: function (oEvent) {
       console.log("Lieferant List matched");
       let sLayout = oEvent.getParameter("arguments").layout || "OneColumn";
       this.getModel("AppModel").setProperty("/layout", sLayout);
-       },
+    },
 
     onSearch: function (oEvent) {
       // #TodoFilter      
@@ -20,24 +20,23 @@ sap.ui.define(["de/bauerberatung/ui5-task/controller/BaseController", "sap/ui/mo
       //aFilter is the array filter we are using, initialized as an empty array
       var aFilter = [];
       var oSearchField = this.getView().byId("searchField").getValue();
+      //get the binding of the list items
+      var oBinding = oList.getBinding("items");
 
       if (oSearchField == "") {
         this.getView().byId("searchField").setPlaceholder("Bitte hier Nummer oder Lieferantenname eingeben");
-      } else{
-      //Check if the search field is not empty and set the value of sQuery.
-      if (oSearchField !== "")
-        sQuery = oSearchField;
-      //get the binding of the list items
-      var oBinding = oList.getBinding("items");
-      //Creating the filter by CompanyName (Lieferantenname)
-      var oCompanyNameFilter = new sap.ui.model.Filter("CompanyName", sap.ui.model.FilterOperator.Contains, sQuery);
-      //Creating Filter by SupplierId (Nummer)
-      var oSupplierIdFilter = new sap.ui.model.Filter("SupplierID", sap.ui.model.FilterOperator.Contains, sQuery);
-      //Combining the two filters to aFilter
-      aFilter.push(new sap.ui.model.Filter([oCompanyNameFilter, oSupplierIdFilter], false));
+      } else {
+          sQuery = oSearchField;
+        //Creating the filter by CompanyName (Lieferantenname)
+        var oCompanyNameFilter = new sap.ui.model.Filter("CompanyName", sap.ui.model.FilterOperator.Contains, sQuery);
+        //Creating Filter by SupplierId (Nummer)
+        var oSupplierIdFilter = new sap.ui.model.Filter("SupplierID", sap.ui.model.FilterOperator.Contains, sQuery);
+        //Combining the two filters to aFilter
+        aFilter.push(new sap.ui.model.Filter([oCompanyNameFilter, oSupplierIdFilter], false));
+      }
       //Filter the list binding items with aFilter
       oBinding.filter(aFilter);
-    }},
+    },
 
     onRefreshSupplier: function () {
       // sap.m.MessageToast.show("Dummy - Refresh");
