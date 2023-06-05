@@ -17,6 +17,9 @@ sap.ui.define(["de/bauerberatung/ui5-task/controller/BaseController", "sap/ui/mo
       // #TodoFilter      
       var oList = this.getView().byId("supplierList");
       var oSearchField = this.getView().byId("searchField").getValue();
+      if(oSearchField==""){
+      this.getView().byId("searchField").setPlaceholder("Bitte hier Nummer/Lieferantenname eingeben");
+        }
       //sQuery is used as the search value when filtering the list, initialized as an empty string
       var sQuery="";
       //aFilter is the array filter we are using, initialized as an empty array
@@ -30,9 +33,9 @@ sap.ui.define(["de/bauerberatung/ui5-task/controller/BaseController", "sap/ui/mo
       var oCompanyNameFilter = new sap.ui.model.Filter("CompanyName", sap.ui.model.FilterOperator.Contains, sQuery);
       //Creating Filter by SupplierId (Nummer)
       var oSupplierIdFilter = new sap.ui.model.Filter("SupplierID", sap.ui.model.FilterOperator.Contains, sQuery);
-      //Combining the two filters and add the search result to aFilter
+      //Combining the two filters to aFilter
       aFilter.push(new sap.ui.model.Filter([oCompanyNameFilter, oSupplierIdFilter], false));
-      //Change the list binding items with result from aFilter
+      //Filter the list binding items with aFilter
       oBinding.filter(aFilter);
     },
 
