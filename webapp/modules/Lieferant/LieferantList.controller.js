@@ -3,29 +3,29 @@ sap.ui.define(["de/bauerberatung/ui5-task/controller/BaseController", "sap/ui/mo
   return BaseController.extend("de.bauerberatung.ui5-task.modules.Lieferant.LieferantList", {
     onInit: function () {
 
-      this.getRouter().attachRouteMatched("Lieferant", this._onRouteMatched.bind(this));
-
+      this.getRouter().attachRouteMatched("Lieferant", this._onRouteMatched.bind(this));         
     },
 
     _onRouteMatched: function (oEvent) {
       console.log("Lieferant List matched");
       let sLayout = oEvent.getParameter("arguments").layout || "OneColumn";
       this.getModel("AppModel").setProperty("/layout", sLayout);
-    },
+       },
 
     onSearch: function (oEvent) {
       // #TodoFilter      
       var oList = this.getView().byId("supplierList");
-      var oSearchField = this.getView().byId("searchField").getValue();
-      if(oSearchField==""){
-      this.getView().byId("searchField").setPlaceholder("Bitte hier Nummer/Lieferantenname eingeben");
-        }
       //sQuery is used as the search value when filtering the list, initialized as an empty string
-      var sQuery="";
+      var sQuery = "";
       //aFilter is the array filter we are using, initialized as an empty array
       var aFilter = [];
+      var oSearchField = this.getView().byId("searchField").getValue();
+
+      if (oSearchField == "") {
+        this.getView().byId("searchField").setPlaceholder("Bitte hier Nummer oder Lieferantenname eingeben");
+      } else{
       //Check if the search field is not empty and set the value of sQuery.
-      if (oSearchField !== "") 
+      if (oSearchField !== "")
         sQuery = oSearchField;
       //get the binding of the list items
       var oBinding = oList.getBinding("items");
@@ -37,12 +37,14 @@ sap.ui.define(["de/bauerberatung/ui5-task/controller/BaseController", "sap/ui/mo
       aFilter.push(new sap.ui.model.Filter([oCompanyNameFilter, oSupplierIdFilter], false));
       //Filter the list binding items with aFilter
       oBinding.filter(aFilter);
-    },
+    }},
 
     onRefreshSupplier: function () {
-     // sap.m.MessageToast.show("Dummy - Refresh");
+      // sap.m.MessageToast.show("Dummy - Refresh");
       this.getView().byId("searchField").setValue("");
       this.onSearch();
+      this.getView().byId("searchField").setPlaceholder("Nummerr/ Lieferantenname eingeben");
+
     },
 
     onAddSupplier: function () {

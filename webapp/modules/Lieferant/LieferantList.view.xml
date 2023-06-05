@@ -33,7 +33,7 @@
                 }" busyIndicatorDelay="{masterView>/delay}" selectionChange=".onSelectionChange">
                 <headerToolbar>
                     <OverflowToolbar>
-                        <SearchField id="searchField" search=".onSearch" liveChange=".onSearch" width="100%">
+                        <SearchField id="searchField" search=".onSearch" placeholder="Nummer/ Lieferantenname eingeben" liveChange=".onSearch" width="100%">
                             <layoutData>
                                 <OverflowToolbarLayoutData shrinkable="true" priority="NeverOverflow" />
                             </layoutData>
