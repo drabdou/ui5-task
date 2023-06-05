@@ -40,7 +40,7 @@
                                     <m:Label text="PLZ" />
                                     <m:Text text="{SupplierModel>PostalCode}" />
                                     <m:Label text="Ort" />
-                                    <m:Text text="{SupplierModel>City}" / >                            
+                                    <m:Text text="{SupplierModel>City}" />                            
                                     <m:Label text="Land" />
                                     <m:Text text="{SupplierModel>Country}" />
                                 </form:content>
