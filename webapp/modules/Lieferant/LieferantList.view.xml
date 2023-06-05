@@ -21,7 +21,15 @@
                     sorter: {
                         path: 'CompanyName',
                         descending: false
+                    },
+                      filters: [
+                    {
+                        path: 'CompanyName'                                       
+                    },
+                    {
+                        path: 'SupplierID'                                     
                     }
+                ]
                 }" busyIndicatorDelay="{masterView>/delay}" selectionChange=".onSelectionChange">
                 <headerToolbar>
                     <OverflowToolbar>
