@@ -13,7 +13,7 @@ herzlichen Glückwunsch, dass du es bis hier hin geschafft hast. Mit dieser Aufg
 
 ## Deine Aufgaben
 
-- [OK] Syntaxfehler im JavaScript Coding beheben
+- [ ] Syntaxfehler im JavaScript Coding beheben
 - [ ] #TodoFilter: Filterung/Suche in der Liste einbauen (Suchfeld oben)
   - Stichwort: Binding filtern
   - Möglichkeit Lieferantenname oder Nummer einzugeben
