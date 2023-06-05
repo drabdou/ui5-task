@@ -75,6 +75,28 @@
       "Region": "IL",
       "PostalCode": "48100",
       "Country": "Italy"
+    },
+    {
+      "SupplierID": "L008",
+      "CompanyName": "Suppliers Extra",
+      "ContactName": "Alex Lee",
+      "ContactTitle": "Purchasing Manager",
+      "Address": "21 northstreet.",
+      "City": "Columbus",
+      "Region": "Ohio",
+      "PostalCode": "43004",
+      "Country": "USA"
+    },
+    {
+      "SupplierID": "L009",
+      "CompanyName": "Orderly",
+      "ContactName": "Maria Tina",
+      "ContactTitle": "Sales Manager",
+      "Address": "Role Mill, 49 Canal St, Role Mill",
+      "City": "London",
+      "Region": "East Midlands",
+      "PostalCode": "DE1 2RJ",
+      "Country": "UK"
     }
   ]
 }
