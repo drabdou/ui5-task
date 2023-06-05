@@ -37,8 +37,10 @@
                                     <m:Text text="{SupplierModel>ContactName} ({SupplierModel>ContactTitle})" />
                                     <m:Label text="Straße" />
                                     <m:Text text="{SupplierModel>Address}" />
-                                    <m:Label text="PLZ/Ort" />
-                                    <m:Text text="{SupplierModel>PostalCode} {SupplierModel>City}" />
+                                    <m:Label text="PLZ" />
+                                    <m:Text text="{SupplierModel>PostalCode}" />
+                                    <m:Label text="Ort" />
+                                    <m:Text text="{SupplierModel>City}" / >                            
                                     <m:Label text="Land" />
                                     <m:Text text="{SupplierModel>Country}" />
                                 </form:content>
