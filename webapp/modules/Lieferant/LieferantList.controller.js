@@ -42,7 +42,7 @@ sap.ui.define(["de/bauerberatung/ui5-task/controller/BaseController", "sap/ui/mo
       // sap.m.MessageToast.show("Dummy - Refresh");
       this.getView().byId("searchField").setValue("");
       this.onSearch();
-      this.getView().byId("searchField").setPlaceholder("Nummerr/ Lieferantenname eingeben");
+      this.getView().byId("searchField").setPlaceholder("Nummer/ Lieferantenname eingeben");
 
     },
 
