@@ -68,4 +68,3 @@ Nun wird sich die Anwendung direkt mit deinem Standardbrowser öffnen. Jedoch: N
 
 Danach kannst du mit den anderen Aufgaben fortfahren.
 
-## Fertig?
