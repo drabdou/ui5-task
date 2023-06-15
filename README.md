@@ -69,5 +69,3 @@ Nun wird sich die Anwendung direkt mit deinem Standardbrowser öffnen. Jedoch: N
 Danach kannst du mit den anderen Aufgaben fortfahren.
 
 ## Fertig?
-
-Gut gemacht! Wenn du mit allen Aufgaben fertig bist gib lade Alex zum Repository ein, bzw. schicke ihm den Link -> alexander.bauer@bauerberatung.de
